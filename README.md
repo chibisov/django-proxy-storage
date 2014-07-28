@@ -14,6 +14,10 @@ Full documentation for project is available at http://chibisov.github.io/django-
 * Tested for python 2.7 and 3.4 versions
 * Tested for Django 1.5.5, 1.6.5 and 1.7
 
+## Installation
+
+    $ pip install django-proxy-storage
+
 ## Running tests
 
 Unittest of this package requires docker. That's why for Mac OS X you have to install [vagrant](http://www.vagrantup.com/downloads.html)
