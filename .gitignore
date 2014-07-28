@@ -1,0 +1,9 @@
+*.pyc
+*.egg-info
+.tox
+*.egg
+.idea
+env
+dist
+test.db
+.vagrant
