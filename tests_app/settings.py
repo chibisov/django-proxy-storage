@@ -104,7 +104,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django_nose',
 
-    'proxy_storage',
     'tests_app',
 )
 
