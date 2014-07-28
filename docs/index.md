@@ -1,7 +1,6 @@
 ### Django-proxy-storage
 
-Django-proxy-storage provides simple subclass of django storage that proxies every operation to original storage and saves meta
-information about files to database.
+Django-proxy-storage provides simple Django storage that proxies every operation to original storage and saves meta information about files to database.
 
 There are no limitations for original storages. It could be default [FileSystemStorage](https://docs.djangoproject.com/en/dev/ref/files/storage/#the-filesystemstorage-class),
 [S3BotoStorage](http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html) from [django-storages](http://django-storages.readthedocs.org/en/latest/index.html) or
@@ -45,19 +44,6 @@ Every `ProxyStorageBase` subclass must be registered in settings:
                 'yourapp.storages.FileSystemProxyStorage',
         }
     }
-
-And don't forget to add `proxy_storage` to `INSTALLED_APPS` in settings:
-
-    # settings.py
-    INSTALLED_APPS = (
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.sites',
-        'django.contrib.messages',
-
-        'proxy_storage',  # here it is
-    )
 
 Let's try it:
 
@@ -594,7 +580,7 @@ I'm encourage you to read it first and then continue reading this documentation.
 
 Usage of [content object field context](#content-object-field-context) provides great authorization facilities.
 
-For our example will have `JobApply` model which will store information about applied resumes.
+For our example we will have `JobApply` model which will store information about applied resumes.
 This model will have four fields:
 
 * **user** - who applied.
@@ -699,7 +685,7 @@ Let's create apply from Messi:
     ... )  # saved to filesystem with path "/var/files/messi_avatar.jpg"
 
 
-Next step is to implement view and configuring routing.
+Next step is to implement view and configure routing.
 
     # yourapp/views.py
     from django.http import HttpResponse
