@@ -1,6 +1,7 @@
-## Django proxy storage
+## Django-proxy-storage
 
-Django proxy storage allows you to create proxy for storages.
+Provides simple subclass of django storage that proxies every operation to
+original storage and saves meta information about files to database.
 
 Full documentation for project is available at http://chibisov.github.io/django-proxy-storage/docs
 
