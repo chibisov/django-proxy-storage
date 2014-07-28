@@ -1004,7 +1004,7 @@ And add data to [meta-backend](#meta-backend):
     >>> proxy_storage = FileSystemProxyStorage()
     >>> for job_apply in JobApply.objects.all():
     ...    file_name = str(job_apply.resume)
-    ...    job_apply.resume.save(
+    ...    proxy_storage.save(
     ...        name=file_name,
     ...        content=job_apply.resume.open(),
     ...        original_storage_path=file_name
