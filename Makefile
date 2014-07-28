@@ -1,5 +1,6 @@
 build_docs:
 	python docs/backdoc.py --source docs/index.md --title "Django proxy storage documentation" > docs/index.html
+	python docs/post_process_docs.py
 
 watch_docs:
 	make build_docs
