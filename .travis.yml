@@ -1,0 +1,18 @@
+language: python
+
+services: mongodb
+
+python:
+  - "2.7"
+
+install:
+  - make prepare_for_tests
+
+env:
+  - TOX_ENV=django1.5.5
+  - TOX_ENV=django1.6.5
+  - TOX_ENV=django1.7
+  - TOX_ENV=py3
+
+script:
+  - tox -e $TOX_ENV -- tests_app

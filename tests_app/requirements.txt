@@ -1,0 +1,5 @@
+nose
+django-nose
+mock
+ipdb
+pymongo
