@@ -5,7 +5,6 @@ from django.utils.encoding import force_text
 from django.core.files.storage import Storage
 
 from proxy_storage import utils
-from proxy_storage.settings import proxy_storage_settings
 from proxy_storage.meta_backends.base import MetaBackendObjectDoesNotExist
 
 
@@ -17,6 +16,8 @@ class ProxyStorageBase(Storage):
         return self.original_storage
 
     def get_name(self):
+        from proxy_storage.settings import proxy_storage_settings
+        
         return proxy_storage_settings.PROXY_STORAGE_CLASSES_INVERTED[type(self)]
 
     def _open(self, name, mode='rb'):

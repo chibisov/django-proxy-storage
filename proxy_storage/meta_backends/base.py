@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from proxy_storage.settings import proxy_storage_settings
 
 
 class MetaBackendObjectException(Exception):
@@ -17,6 +16,8 @@ class MetaBackendObject(dict):
         )
 
     def get_proxy_storage(self):
+        from proxy_storage.settings import proxy_storage_settings
+
         return proxy_storage_settings.PROXY_STORAGE_CLASSES[self['proxy_storage_name']]()
 
     def get_original_storage_full_path(self):
