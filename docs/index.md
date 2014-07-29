@@ -990,10 +990,13 @@ And add data to [meta-backend](#meta-backend):
     >>> proxy_storage = FileSystemProxyStorage()
     >>> for job_apply in JobApply.objects.all():
     ...    file_name = str(job_apply.resume)
-    ...    proxy_storage.save(
+    ...    new_file_name = proxy_storage.save(
     ...        name=file_name,
     ...        content=job_apply.resume.open(),
     ...        original_storage_path=file_name
+    ...    )
+    ...    JobApply.objects.filter(pk=new_file_name.id).update(
+    ...        resume=new_file_name
     ...    )
 
 Let's see how model data changed:
