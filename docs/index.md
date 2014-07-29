@@ -465,7 +465,7 @@ Let's use that model for proxy-storage:
     from proxy_storage.meta_backends.orm import ORMMetaBackend
     from yourapp.models import ProxyStorageModel
 
-    orm_meta_backend = ProxyStorageModel(model=ProxyStorageModel)
+    orm_meta_backend = ORMMetaBackend(model=ProxyStorageModel)
 
 #### ORM meta-backend object
 
@@ -1045,7 +1045,7 @@ If you need to access the values of Django-proxy-storage settings in your projec
 
 Release notes for Django-proxy-storage
 
-#### 0.1
+#### 0.1.0
 
 *July 29, 2014*
 
