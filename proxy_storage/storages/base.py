@@ -17,7 +17,7 @@ class ProxyStorageBase(Storage):
 
     def get_name(self):
         from proxy_storage.settings import proxy_storage_settings
-        
+
         return proxy_storage_settings.PROXY_STORAGE_CLASSES_INVERTED[type(self)]
 
     def _open(self, name, mode='rb'):

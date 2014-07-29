@@ -145,5 +145,6 @@ NOSE_PLUGINS = [
 PROXY_STORAGE = {
     'PROXY_STORAGE_CLASSES': {
         'simple_orm': 'tests_app.proxy_storages.SimpleORMProxyStorage',
+        'simple_mongo': 'tests_app.proxy_storages.SimpleMongoProxyStorage',
     }
 }
