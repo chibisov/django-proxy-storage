@@ -1,6 +1,9 @@
 # Django settings for testproject project.
 import multiprocessing
 import os
+import tempfile
+
+TEMP_DIR = tempfile.mkdtemp()
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -138,7 +141,8 @@ NOSE_ARGS = [
 NOSE_PLUGINS = [
     'plugins.UnitTestDiscoveryPlugin',
     'plugins.FlushCache',
-    'plugins.FlushMongo'
+    'plugins.FlushMongo',
+    'plugins.FlushTempDir',
 ]
 
 # django-proxy-storage settings

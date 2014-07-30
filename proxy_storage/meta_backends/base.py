@@ -21,7 +21,10 @@ class MetaBackendObject(dict):
         return proxy_storage_settings.PROXY_STORAGE_CLASSES[self['proxy_storage_name']]()
 
     def get_original_storage_full_path(self):
-        return self.get_proxy_storage().get_original_storage_full_path(meta_backend_obj=self)
+        return self.get_proxy_storage().get_original_storage_full_path(
+            path=self['path'],
+            meta_backend_obj=self
+        )
 
 
 class MetaBackendBase(object):
