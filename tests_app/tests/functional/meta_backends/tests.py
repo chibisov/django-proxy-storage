@@ -11,6 +11,7 @@ class MetaBackendObjectTestBaseMixin(object):
     def setUp(self):
         self.path = self.proxy_storage.save('hello.txt', ContentFile('world'))
         self.meta_backend_obj = self.proxy_storage.meta_backend.get(self.path)
+        self.original_storage_path = self.meta_backend_obj['original_storage_path']
 
     def test_get_proxy_storage(self):
         self.assertEqual(type(self.meta_backend_obj.get_proxy_storage()), type(self.proxy_storage))
@@ -21,13 +22,16 @@ class MetaBackendObjectTestBaseMixin(object):
     def test_get_original_storage_full_path(self):
         self.assertEqual(
             self.meta_backend_obj.get_original_storage_full_path(),
-            self.proxy_storage.get_original_storage_full_path(self.path)
+            self.proxy_storage.get_original_storage_full_path(self.original_storage_path)
         )
 
     def test_get_original_storage_full_path__should_be_called_with_meta_backend_obj_param(self):
         with patch.object(type(self.proxy_storage), 'get_original_storage_full_path', Mock()) as mock:
             self.meta_backend_obj.get_original_storage_full_path()
-            mock.assert_called_once_with(path=self.meta_backend_obj['path'], meta_backend_obj=self.meta_backend_obj)
+            mock.assert_called_once_with(
+                path=self.meta_backend_obj['original_storage_path'],
+                meta_backend_obj=self.meta_backend_obj
+            )
 
 
 class ORMMetaBackendObjectTestBase(MetaBackendObjectTestBaseMixin, TestCase):

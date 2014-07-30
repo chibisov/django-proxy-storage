@@ -22,7 +22,7 @@ class MetaBackendObject(dict):
 
     def get_original_storage_full_path(self):
         return self.get_proxy_storage().get_original_storage_full_path(
-            path=self['path'],
+            path=self['original_storage_path'],
             meta_backend_obj=self
         )
 
