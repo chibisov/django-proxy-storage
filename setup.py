@@ -58,7 +58,8 @@ setup(
     download_url='https://pypi.python.org/pypi/django-proxy-storage/',
     license='BSD',
     description='Proxy storage for any Django storage',
-    long_description='Proxy storage for any Django storage',
+    long_description=('Provides simple Django storage that proxies every operation to '
+                      'original storage and saves meta information about files to database.'),
     author='Gennady Chibisov',
     author_email='web-chib@ya.ru',
     packages=get_packages('proxy_storage'),

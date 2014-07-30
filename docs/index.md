@@ -1045,6 +1045,13 @@ If you need to access the values of Django-proxy-storage settings in your projec
 
 Release notes for Django-proxy-storage
 
+#### 0.1.1
+
+*July 30, 2014*
+
+* [Fixed #1](https://github.com/chibisov/django-proxy-storage/issues/1). Meta-backend object's
+`get_original_storage_full_path` didn't send path attribute
+
 #### 0.1.0
 
 *July 29, 2014*

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+
 from django_nose.plugin import AlwaysOnPlugin
 
 from django.test import TestCase
@@ -6,6 +8,7 @@ from django.core.cache import cache
 from django.conf import settings
 
 from pymongo import MongoClient
+import shutil
 
 
 class UnitTestDiscoveryPlugin(AlwaysOnPlugin):
@@ -45,6 +48,11 @@ class FlushCache(AlwaysOnPlugin):
             cache.clear()
             return old_run(*args, **kwargs)
         TestCase.run = new_run
+
+
+class FlushTempDir(AlwaysOnPlugin):
+    def finalize(self, result):
+        shutil.rmtree(settings.TEMP_DIR, ignore_errors=True)
 
 
 class FlushMongo(AlwaysOnPlugin):
