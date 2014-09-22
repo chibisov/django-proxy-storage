@@ -82,7 +82,7 @@ With django-proxy-storage it's easy to have access to information about files fr
 **Authorization**
 
 With single endpoint it's easy to implement authorization for files from different storages.
-With help of [content object field context](#content-object-field-context) it's even easier to
+With the help of [content object field context](#content-object-field-context) it's even easier to
 facilitate authorization for exact model instances. You can read more from [authorization example](#authorization).
 
 **Multiple original storages**
@@ -178,7 +178,7 @@ directly:
 
 #### Multiple original storages
 
-`MultipleOriginalStoragesMixin` adds ability to use more then one original storage. Those storages should be set as
+`MultipleOriginalStoragesMixin` adds ability to use more than one original storage. Those storages should be set as
 `original_storages` attribute in format of an iterable (e.g., a list or tuple) consisting itself
 of iterables of exactly two items - name of the original storage and storage itself. For example:
 
@@ -195,8 +195,8 @@ of iterables of exactly two items - name of the original storage and storage its
     class FileSystemOrGridFSProxyStorage(MultipleOriginalStoragesMixin,
                                          ProxyStorageBase):
         original_storages = (
-            ('file_system': FileSystemStorage(location='/var/files/')),
-            ('gridfs': GridFSProxyStorage()),
+            ('file_system', FileSystemStorage(location='/var/files/')),
+            ('gridfs', GridFSProxyStorage()),
         )
         meta_backend = MongoMetaBackend(
             database=get_mongo_db(),
@@ -576,7 +576,7 @@ be used for [authorization purposes](#authorization).
 
 *You can read more about serving authenticated static files from [this article](http://zacharyvoase.com/2009/09/08/sendfile/).
 It describes in general how it should be done by web applications.
-I'm encourage you to read it first and then continue reading this documentation.*
+I encourage you to read it first and then continue reading this documentation.*
 
 Usage of [content object field context](#content-object-field-context) provides great authorization facilities.
 
@@ -838,8 +838,8 @@ Let's do this:
     class FileSystemOrGridFSProxyStorage(MultipleOriginalStoragesMixin,
                                          ProxyStorageBase):
         original_storages = (
-            ('file_system': FileSystemStorage(location='/var/files/')),
-            ('gridfs': GridFSProxyStorage()),
+            ('file_system', FileSystemStorage(location='/var/files/')),
+            ('gridfs', GridFSProxyStorage()),
         )
         meta_backend = MongoMetaBackend(
             database=get_mongo_db(),
