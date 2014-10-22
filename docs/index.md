@@ -8,7 +8,7 @@ any other storage of your choice.
 
 Source repository is available at [https://github.com/chibisov/django-proxy-storage](https://github.com/chibisov/django-proxy-storage).
 
-There is the [slides](https://speakerdeck.com/moscowdjango/rabota-s-failami-s-pomoshch-iu-django-proxy-storage) (in english) and comming soon video (in russian) from latest talk about django-proxy-storage at [Moscow Django](http://moscowdjango.ru/meetup/23/django-proxy-storage/).
+There are the [slides](https://speakerdeck.com/moscowdjango/rabota-s-failami-s-pomoshch-iu-django-proxy-storage) (in english) and [video](https://www.youtube.com/watch?v=V--IL52n_fw) (in russian) from latest talk about django-proxy-storage at [Moscow Django](http://moscowdjango.ru/meetup/23/django-proxy-storage/).
 
 #### Quick start
 
