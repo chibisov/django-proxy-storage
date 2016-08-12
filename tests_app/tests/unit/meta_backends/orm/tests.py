@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import re
+
 from django.test import TestCase
 from django.db import IntegrityError
 from django.contrib.contenttypes.models import ContentType
@@ -155,7 +157,7 @@ class ProxyStorageModelBaseTest(TestCase):
             error_msg = str(e)
         else:
             error_msg = None
-        self.assertEqual(error_msg, 'column path is not unique')
+        self.assertTrue(re.search(r'unique', error_msg, flags=re.IGNORECASE))
 
     def test_unicode(self):
         instance = self.model.objects.create(

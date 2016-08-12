@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-from django.utils import importlib
+try:
+    from django.utils import importlib
+except ImportError:
+    import importlib
+
 from django.conf import settings
 
 from proxy_storage.compat import six

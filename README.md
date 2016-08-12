@@ -11,8 +11,8 @@ Full documentation for project is available at http://chibisov.github.io/django-
 
 ## Requirements
 
-* Tested for python 2.7 and 3.4 versions
-* Tested for Django 1.5.5, 1.6.5 and 1.7
+* Tested for python 2.7 and 3.5 versions
+* Tested for Django 1.8 and 1.9 versions
 
 ## Installation
 
@@ -35,7 +35,7 @@ Running the tests:
 
 Running test for exact environment:
 
-    $ tox -e django1.5.5 -- tests_app
+    $ tox -e py27-django18 -- tests_app
 
 Recreate envs before running tests:
 
