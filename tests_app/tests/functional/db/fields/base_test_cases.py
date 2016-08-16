@@ -2,6 +2,7 @@
 import shutil
 import tempfile
 
+import django
 from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
 from django.contrib.auth.models import User
@@ -15,7 +16,10 @@ class ProxyStorageFileFieldTestMixin(object):
         self.temp_dir = tempfile.mkdtemp()
         self.content = 'some content'
         self.content_file = ContentFile(self.content)
-        SurveyAnswer._meta.get_field_by_name('resume')[0].storage = self.proxy_storage
+        if django.VERSION[0] == 1 and django.VERSION[1] >= 10:
+            SurveyAnswer._meta.get_field('resume').storage = self.proxy_storage
+        else:
+            SurveyAnswer._meta.get_field_by_name('resume')[0].storage = self.proxy_storage
         self.proxy_storage.original_storage = FileSystemStorage(location=self.temp_dir)
 
         self.user = User.objects.create(username='web-chib')

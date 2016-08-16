@@ -2,6 +2,7 @@
 import tempfile
 import shutil
 import os
+import django
 from mock import Mock
 
 from django.core.files.base import ContentFile
@@ -20,7 +21,10 @@ class PrepareMixin(object):
         self.content_file = ContentFile(self.content)
         self.file_full_path = os.path.join(self.temp_dir, self.file_name)
         self.proxy_storage.original_storage = FileSystemStorage(location=self.temp_dir)
-        JobApply._meta.get_field_by_name('resume')[0].storage = self.proxy_storage.original_storage
+        if django.VERSION[0] == 1 and django.VERSION[1] >= 10:
+            JobApply._meta.get_field('resume').storage = self.proxy_storage.original_storage
+        else:
+            JobApply._meta.get_field_by_name('resume')[0].storage = self.proxy_storage.original_storage
 
     def tearDown(self):
         shutil.rmtree(self.temp_dir)
@@ -39,7 +43,10 @@ class TestMigrationToProxyStorageMixin(PrepareMixin):
         JobApply.objects.filter(id=job_apply.id).update(resume=new_file_name)
 
         # change storage to proxy-storage
-        JobApply._meta.get_field_by_name('resume')[0].storage = self.proxy_storage
+        if django.VERSION[0] == 1 and django.VERSION[1] >= 10:
+            JobApply._meta.get_field('resume').storage = self.proxy_storage
+        else:
+            JobApply._meta.get_field_by_name('resume')[0].storage = self.proxy_storage
 
         fresh_job_apply = JobApply.objects.get(pk=job_apply.id)
         self.assertEqual(str(fresh_job_apply.resume), new_file_name)
