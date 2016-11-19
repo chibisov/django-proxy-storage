@@ -3,6 +3,7 @@ from django.core.files.base import ContentFile
 from django.utils.encoding import force_text
 
 from proxy_storage.settings import proxy_storage_settings
+import os.path
 
 
 class TestExistsMixin(object):
@@ -62,7 +63,7 @@ class TestSaveMixin(object):
         second_saved_file_name = self.proxy_storage.save(self.file_name, second_content_file)
 
         self.assertNotEqual(saved_file_name, second_saved_file_name)
-        self.assertEqual(second_saved_file_name.split('/')[-1], 'hello_1.txt')
+        self.assertRegexpMatches(os.path.basename(second_saved_file_name), r'hello_\w{1,7}.txt')
 
         model_instance = self.proxy_storage.meta_backend.get(path=saved_file_name)
         second_model_instance = self.proxy_storage.meta_backend.get(path=second_saved_file_name)

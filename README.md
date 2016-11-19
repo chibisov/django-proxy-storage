@@ -5,14 +5,17 @@ original storage and saves meta information about files to database.
 
 Full documentation for project is available at http://chibisov.github.io/django-proxy-storage/docs
 
-[![Build Status](https://travis-ci.org/chibisov/django-proxy-storage.png?branch=master)](https://travis-ci.org/chibisov/django-proxy-storage)
-[![Latest Version](https://pypip.in/version/django-proxy-storage/badge.png)](https://pypi.python.org/pypi/django-proxy-storage/)
+[![Build Status](https://travis-ci.org/chibisov/drf-extensions.svg?branch=master)](https://travis-ci.org/chibisov/drf-extensions)
+[![PyPI](https://img.shields.io/pypi/v/drf-extensions.svg)](https://pypi.python.org/pypi/drf-extensions)
+
+[![Build Status](https://travis-ci.org/chibisov/django-proxy-storage.svg?branch=master)](https://travis-ci.org/chibisov/django-proxy-storage)
+[![PyPI](https://img.shields.io/pypi/v/django-proxy-storage.svg)](https://pypi.python.org/pypi/django-proxy-storage)
 
 
 ## Requirements
 
-* Tested for python 2.7 and 3.4 versions
-* Tested for Django 1.5.5, 1.6.5 and 1.7
+* Tested for python 2.7 and 3.5 versions
+* Tested for Django 1.8 and 1.9 versions
 
 ## Installation
 
@@ -35,7 +38,7 @@ Running the tests:
 
 Running test for exact environment:
 
-    $ tox -e django1.5.5 -- tests_app
+    $ tox -e py27-django18 -- tests_app
 
 Recreate envs before running tests:
 
