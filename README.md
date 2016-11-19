@@ -5,9 +5,6 @@ original storage and saves meta information about files to database.
 
 Full documentation for project is available at http://chibisov.github.io/django-proxy-storage/docs
 
-[![Build Status](https://travis-ci.org/chibisov/drf-extensions.svg?branch=master)](https://travis-ci.org/chibisov/drf-extensions)
-[![PyPI](https://img.shields.io/pypi/v/drf-extensions.svg)](https://pypi.python.org/pypi/drf-extensions)
-
 [![Build Status](https://travis-ci.org/chibisov/django-proxy-storage.svg?branch=master)](https://travis-ci.org/chibisov/django-proxy-storage)
 [![PyPI](https://img.shields.io/pypi/v/django-proxy-storage.svg)](https://pypi.python.org/pypi/django-proxy-storage)
 
