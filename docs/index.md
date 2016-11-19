@@ -1047,6 +1047,12 @@ If you need to access the values of Django-proxy-storage settings in your projec
 
 Release notes for Django-proxy-storage
 
+#### 0.1.2
+
+*November 19, 2016*
+
+* [Django 1.9 compatibility](https://github.com/chibisov/django-proxy-storage/pull/9)
+
 #### 0.1.1
 
 *July 30, 2014*
